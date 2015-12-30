@@ -1,0 +1,334 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN""http://www.wapforum.org/DTD/xhtml-mobile10.dtd" >
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>装修琅琊榜</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <link type="text/css" href="../css/swiper.min.css" rel="stylesheet"/>
+    <link type="text/css" href="../css/yx.css?v3009007" rel="stylesheet"/>
+    <script type="text/javascript">
+
+    </script>
+</head>
+<body>
+<div class="music_control" onclick="control()"><img src="../images/bg_open.png"/></div>
+<div>
+    <div class="p1 bg_green" style="display:block;">
+        <img src="../images/bg.png" class="bling"/>
+        <div class="p1_inside">
+            <img src="../images/title.png" class="titleimg"/>
+            <img src="../images/workers.png" class="workerimg"/>
+
+            <div class="attack_btn">
+                <img src="../images/attack.png" class="attackimg"/>
+            </div>
+            <div class="coright"><p>©360装房网</p></div>
+        </div>
+    </div>
+    <div class="big_bg bg2" style="display:none">
+        <div class="p2" style="display:none">
+            <img src="../images/four.png" class="p2_img1"/>
+
+            <div class="p2_con">
+                <div class="bz">
+                    <img src="../images/water.png" pic="0" class="tu1 bz_l shake1">
+                    <img src="../images/cement.png" pic="1" class="tu1 shake2">
+                    <img src="../images/gray.png" pic="2" class="tu1 bz_l shake1">
+                    <img src="../images/wood.png" pic="3" class="tu1 shake2">
+                </div>
+            </div>
+            <img src="../images/foryou.png" class="p2_img2"/>
+        </div>
+    </div>
+    <div class="p3 big_bg" style="display:none;overflow: hidden;">
+        <img src="../images/hands.png" class="open_bgh ab_posi tran_scal"/>
+        <img src="../images/close.png" class="close"/>
+
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="../images/waterpp.png" class="bang1_img" title="0"></div>
+                <div class="swiper-slide"><img src="../images/waterpp.png" class="bang1_img" title="1"></div>
+                <div class="swiper-slide"><img src="../images/waterpp.png" class="bang1_img" title="2"></div>
+                <div class="swiper-slide"><img src="../images/waterpp.png" class="bang1_img" title="3"></div>
+
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+        <img src="../images/fight.png" class="btn_attack"/>
+
+        <div class="coright2"><p>©开工宝</p></div>
+    </div>
+    <div class="p4 big_bg" style="display:none">
+        <img src="../images/hands.png" class="open_bgh ab_posi"/>
+
+        <div class="question">
+            <div class="timing"><span class="num">1</span></div>
+            <!--问题区-->
+            <div class="question_area martop1 question">
+                <img src="../images/question.png" class="question_title">
+
+                <div class="answer">
+                    <span class="answerABC"></span>
+                    <span class="answerABC"></span>
+                    <span class="answerABC"></span>
+                </div>
+            </div>
+            <!--end-->
+            <img src="../images/please.png" class="width_100 martop2">
+            <img src="../images/next.png" class="next width_100 martop3">
+            <img src="../images/submit.png" class="last width_100 martop3" style="display: none;">
+        </div>
+        <div class="coright2"><p>©开工宝</p></div>
+    </div>
+    <div class="p5 big_bg" style="display:none;overflow: hidden;">
+        <img src="../images/hands.png" class="open_bg ab_posi posi_top"/>
+
+        <div class="finish">
+            <img src="../images/finish.png" class="width_100"/>
+
+            <div class="score">
+                <img src="../images/score.png" class="width_100 martop3"/>
+
+                <p class="score_num one two three">
+                    <span class="baiwei"></span>
+                    <span class="shiwei"></span>
+                    <span class="gewei"></span>
+                </p>
+            </div>
+            <div class="input_tel martop5"><input type="text" placeholder="输入手机号码"></div>
+            <img src="../images/submit.png" class="width_100 martop6 marbot2"/>
+            <a href="ranking.html" class="checktop">查看我的排名</a>
+        </div>
+        <div class="coright2"><p>©开工宝</p></div>
+    </div>
+</div>
+<audio id="bgMp3" src="../images/lucky.mp3" controls="controls" loop="false" hidden="true"></audio>
+<script type="text/javascript" src="http://test.360zfw.com/Public/web/js/jquery.min.js"></script>
+
+<script type="text/javascript" src="../css/swiper.min.js"></script>
+
+<script>
+    var swiper,
+         Qnum,
+         startime = 0,
+         endtime = 0,
+         usetime = 0,
+         bgAuto = document.getElementById("bgMp3"),
+         arry = ["0", "-135%", "-271%", "-406%"],
+         posi = ["99%", "1.5%", "12.4%", "23%", "34%", "45%", "55.7%", "66%", "77%", "88%"],
+    /*9  88.5%
+     8  77%
+     7  66%
+     6  55.7%
+     5  45%
+     4  34%
+     3  23%
+     2  12.4%
+     1  1.5%
+     0  99%
+     */
+        arry2 = [
+        [{pic:"question.png",right:1}, {pic:"question.png",right:0}, {pic:"question.png",right:1}, {pic:"question.png",right:2}, {pic:"question.png",right:2},{pic:"question.png",right:0},{pic:"question.png",right:2}, {pic:"question.png",right:2}, {pic:"question.png",right:2}, {pic:"question.png",right:2}],
+        [{pic:"question.png",right:1}, {pic:"question.png",right:2}, {pic:"question.png",right:2}, {pic:"question.png",right:2}, {pic:"question.png",right:2},{pic:"question.png",right:2},{pic:"question.png",right:2}, {pic:"question.png",right:2}, {pic:"question.png",right:2}, {pic:"question.png",right:2}],
+        [{pic:"question.png",right:1}, {pic:"question.png",right:2}, {pic:"question.png",right:2}, {pic:"question.png",right:2}, {pic:"question.png",right:2},{pic:"question.png",right:2},{pic:"question.png",right:2}, {pic:"question.png",right:2}, {pic:"question.png",right:2}, {pic:"question.png",right:2}],
+        [{pic:"question.png",right:1}, {pic:"question.png",right:2}, {pic:"question.png",right:2}, {pic:"question.png",right:2}, {pic:"question.png",right:2},{pic:"question.png",right:2},{pic:"question.png",right:2}, {pic:"question.png",right:2}, {pic:"question.png",right:2}, {pic:"question.png",right:2}]
+        ],
+        ngr,
+        score_arry= ["100.4%","0.5%","11.5%","22.5%","34%","45%","56%","67.3%","78.5%","89.5%"];
+    /*
+     1  0.5%
+     2  11.5%
+     3  22.5%
+     4  34%
+     5  45%
+     6  56%
+     7  67.3%
+     8  78.5%
+     9   89.5%
+     0  100.4%
+     */
+    var bili = window.innerHeight/window.innerWidth;
+    if (bili < 1.55 && bili > 1.49) {
+        $(".bling").css("height", "105%");
+        $(".coright").css("position", "relative");
+        $(".bg2,.p3,.p4,.p5").css("height","105%");
+    } else if (bili < 1.49 && bili > 1.40) {
+        $(".bling").css("height", "110%");
+        $(".coright").css("position", "relative");
+        $(".bg2,.p3,.p4,.p5").css("height","110%");
+    } else if (bili < 1.40 && bili > 1.31) {
+        $(".bling").css("height", "120%");
+        $(".coright").css("position", "relative");
+        $(".bg2,.p3,.p4,.p5").css("height","120%");
+    } else if (bili < 1.31) {
+        $(".bling").css("height", "134%");
+        $(".coright").css("position", "relative");
+        $(".bg2,.p3,.p4,.p5").css("height","134%");
+    }
+
+    console.log(bili);
+
+    window.onload = function () {
+        bgAuto.play();
+
+    };
+    $(".attack_btn").addClass("xiahua");
+    $(".coright").show();
+   // $(".attack_btn").animate({marginTop:"0"},500,function(){$(".coright").show();});
+
+    $(".attackimg,.workerimg").click(function () {
+        $(".p1").hide();
+        $(".p2").show();
+        $(".bg2").show();
+    });
+
+    $(".bz img").click(function () {
+       // $(".tran").addClass("tran_scal");
+        ngr = $(this).attr("pic");
+        console.log("打开" + ngr);
+        ngr = parseInt(ngr) + 1;
+        $(".p2").css("display", "none");
+        $(".p3").show();
+        if (!swiper) {
+            swiper = new Swiper('.swiper-container', {
+                pagination: '.swiper-pagination',
+                slidesPerView: 1,
+                loop: true,
+                paginationClickable: true,
+                spaceBetween: 30,
+                keyboardControl: true,
+                nextButton: '.swiper-button-next',
+                prevButton: '.swiper-button-prev'
+            });
+        }
+        swiper.slideTo(ngr);
+        console.log("滑块" + ngr + "-1");
+
+    });
+
+    var index_question = 0;
+    $(".btn_attack").click(function () {
+        Qnum = $(".swiper-slide-active").attr("data-swiper-slide-index");
+        $(".p3").hide();
+        console.log("显示块" + Qnum);
+        $(".question_title").attr("src", "../images/" + arry2[Qnum][index_question].pic);
+        $(".p4").show(0, function () {
+            var d1 = new Date()
+            startime = d1.getTime();
+            timer(posi.length);
+            click_an();
+        });
+    });
+    var self_answer='',Total_score=0;
+    $(".next").click(function () {
+        window.clearInterval(oop);
+        clearTimeout(clear_time);
+        console.log(self_answer);
+        if(self_answer == arry2[Qnum][index_question].right ){
+            Total_score =Total_score+10;
+        }else{Total_score =Total_score+0;}
+        console.log("总得分"+Total_score);
+        index_question = index_question + 1;
+        $(".num").css("background-position", "70% " + posi[posi.length - 1]);
+        timer(posi.length);
+        $(".answer span").removeClass("gou");
+        $(".question_title").attr("src", "../images/" + arry2[Qnum][index_question].pic);
+        click_an();
+        if (index_question == arry2[0].length-1) {
+            $(".next").hide();
+            $(".last").show();
+        }
+
+    });
+
+    function click_an() {
+        $(".answer span").on('touchstart', function () {
+            $(".answer span").removeClass("gou");
+            $(this).addClass("gou");
+            self_answer=$(".answer span").index(this);
+        });
+        self_answer='';
+    }
+    $(".last").click(function () {
+        console.log(self_answer);
+        if(self_answer == arry2[Qnum][index_question].right ){
+            Total_score =Total_score+10;
+        }else{Total_score =Total_score+0;}
+        console.log("总得分"+Total_score);
+        var d2 = new Date()
+        endtime = d2.getTime();
+        window.clearInterval(oop);
+        $(".p4").hide();
+        $(".last").hide();
+        $(".p5").show();
+        usetime = (endtime - startime)/1000;
+        console.log(usetime);
+
+        if(Total_score == 100){
+            $(".baiwei").show();
+            $(".shiwei").show();
+            $(".baiwei").css({"background-position":"150% -1%","width":"38.5%"});
+            $(".shiwei").css({"background-position":"3% 100.4%","width":"34.5%"});
+            $(".gewei").css({"background-position":"40% 100.4%","width":"35.5%"});
+            $(".score_num").css({"left":"43%"});
+        }else if(Total_score <= 90&& Total_score >= 10){
+            $(".shiwei").show();
+            var nshiwei= Total_score/10;
+            $(".shiwei").css("background-position","40% "+score_arry[nshiwei]);
+            $(".gewei").css("background-position","40% "+score_arry[0]);
+        }else{
+            $(".shiwei").hide();
+            $(".gewei").css({"background-position":"40% "+score_arry[0],"margin-left":"15%"});
+        }
+    });
+    $(".close").click(function () {
+        $(".p3").hide();
+        $(".p2").show();
+
+    });
+    //倒数0-9
+    var oop;
+    var clear_time;
+    function timer(it) {
+        it = parseInt(it);
+        window.clearInterval(oop);
+        oop = window.setInterval(function () {
+            var second = 0;
+            if (it > 0) {
+                second = it;
+            }
+            $(".num").css("background-position", "70% " + posi[it - 2]);
+            it--;
+            if (it == -1) {
+                $(".answer span").unbind();
+                window.clearInterval(oop);
+            }
+        }, 1000);
+    }
+    var startime= 0,endtime= 0,d = new Date();
+
+
+    //背景音乐
+    var playstatue = true;
+    function control() {
+        if (playstatue) {
+            bgAuto.pause();
+            console.log("停");
+            $(".music_control img").attr("src", "../images/bg_close.png");
+            playstatue = false;
+        } else {
+            bgAuto.play();
+            console.log("开");
+            playstatue = true;
+            $(".music_control img").attr("src", "../images/bg_open.png");
+        }
+    }
+
+</script>
+</body>
+</html>

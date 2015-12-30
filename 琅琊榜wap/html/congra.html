@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN""http://www.wapforum.org/DTD/xhtml-mobile10.dtd" >
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>装修琅琊榜</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <link type="text/css" href="../css/yx.css?v5" rel="stylesheet"/>
+    <script type="text/javascript">
+        (function (e, a) {
+            function f() {
+                return parseFloat(e.getComputedStyle(a.documentElement, null)["font-size"])
+            }
+
+            function g() {
+                if (d) {
+                    var b = a.documentElement.offsetWidth;
+                    if (d != b) {
+                        var c = a.createElement("style");
+                        c.innerHTML = "@media only screen and (width: " + b + "px) {html{font-size: " + 200 / 750 * b + "px !important;}}";
+                        a.getElementsByTagName("head")[0].appendChild(c);
+                        e.removeEventListener("orientationchange", orientationchange)
+                    }
+                } else d = a.documentElement.offsetWidth, a.documentElement.style.fontSize = 200 / 750 * d + "px", b = f(),
+                        c = 200 / 750 * d, b !== c && (b > c + 1 || b < c - 1) && (a.documentElement.style.fontSize = "200px", a.documentElement.style.fontSize = 200 / f() * c + "px")
+            }
+
+            var d;
+            g();
+            0 > e.navigator.userAgent.indexOf("iPhone") && e.addEventListener("orientationchange", function () {
+                setTimeout(function () {
+                    g()
+                }, 300)
+            })
+        })(window, document);
+    </script>
+</head>
+<body>
+<div class="new_bigbg">
+    <img src="../images/congratulate.png" class="width_100 martop5 line0"/>
+    <div class="white100">
+       <table class="table2">
+           <tr><td>萌妹纸</td><td>135***5874</td><td>100元</td></tr>
+           <tr><td>萌妹纸</td><td>135***5874</td><td>100元</td></tr>
+           <tr><td>萌妹纸</td><td>135***5874</td><td>100元</td></tr>
+           <tr><td>萌妹纸</td><td>135***5874</td><td>100元</td></tr>
+           <tr><td>萌妹纸</td><td>135***5874</td><td>100元</td></tr>
+       </table>
+    </div>
+    <div class="width_90 martop5"><img src="../images/test1.jpg"/> </div>
+    <div class="width_90"><img src="../images/test2.jpg"/> </div>
+    <div class="down">
+        <img src="../images/down.png"/>
+        <div class="down_mid"><p class="yellow_title">开工宝</p><p>我跑得开工新方式</p></div>
+        <div class="down_right"><a href="#">领<span style="color:#DA1A00">100元</span>现金</a> </div>
+    </div>
+</div>
+</body>
+</html>
