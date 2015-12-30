@@ -51,9 +51,9 @@
         <div class="swiper-container">
             <div class="swiper-wrapper">
                 <div class="swiper-slide"><img src="../images/waterpp.png" class="bang1_img" title="0"></div>
-                <div class="swiper-slide"><img src="../images/waterpp.png" class="bang1_img" title="1"></div>
-                <div class="swiper-slide"><img src="../images/waterpp.png" class="bang1_img" title="2"></div>
-                <div class="swiper-slide"><img src="../images/waterpp.png" class="bang1_img" title="3"></div>
+                <div class="swiper-slide"><img src="../images/mudpp.png" class="bang1_img" title="1"></div>
+                <div class="swiper-slide"><img src="../images/ashpp.png" class="bang1_img" title="2"></div>
+                <div class="swiper-slide"><img src="../images/woodpp.png" class="bang1_img" title="3"></div>
 
             </div>
             <div class="swiper-button-next"></div>
@@ -138,8 +138,9 @@
         [{pic:"question.png",right:1}, {pic:"question.png",right:2}, {pic:"question.png",right:2}, {pic:"question.png",right:2}, {pic:"question.png",right:2},{pic:"question.png",right:2},{pic:"question.png",right:2}, {pic:"question.png",right:2}, {pic:"question.png",right:2}, {pic:"question.png",right:2}],
         [{pic:"question.png",right:1}, {pic:"question.png",right:2}, {pic:"question.png",right:2}, {pic:"question.png",right:2}, {pic:"question.png",right:2},{pic:"question.png",right:2},{pic:"question.png",right:2}, {pic:"question.png",right:2}, {pic:"question.png",right:2}, {pic:"question.png",right:2}]
         ],
+        arry3 = ["水电", "泥水", "灰工", "木工"],
         ngr,
-        score_arry= ["100.4%","0.5%","11.5%","22.5%","34%","45%","56%","67.3%","78.5%","89.5%"];
+        score_arry= ["100.4%","0.5%","11.5%","22.5%","34%","45%","56%","67.3%","78.3%","89.5%"];
     /*
      1  0.5%
      2  11.5%
@@ -216,6 +217,7 @@
         Qnum = $(".swiper-slide-active").attr("data-swiper-slide-index");
         $(".p3").hide();
         console.log("显示块" + Qnum);
+        console.log("类型:" + arry3[Qnum]);
         $(".question_title").attr("src", "../images/" + arry2[Qnum][index_question].pic);
         $(".p4").show(0, function () {
             var d1 = new Date()
@@ -224,7 +226,7 @@
             click_an();
         });
     });
-    var self_answer='',Total_score=0;
+    var self_answer=-1,Total_score=0;
     $(".next").click(function () {
         window.clearInterval(oop);
         clearTimeout(clear_time);
@@ -252,7 +254,7 @@
             $(this).addClass("gou");
             self_answer=$(".answer span").index(this);
         });
-        self_answer='';
+        self_answer=-1;
     }
     $(".last").click(function () {
         console.log(self_answer);
@@ -273,8 +275,8 @@
             $(".baiwei").show();
             $(".shiwei").show();
             $(".baiwei").css({"background-position":"150% -1%","width":"38.5%"});
-            $(".shiwei").css({"background-position":"3% 100.4%","width":"34.5%"});
-            $(".gewei").css({"background-position":"40% 100.4%","width":"35.5%"});
+            $(".shiwei").css({"background-position":"3% 100.2%","width":"34.5%"});
+            $(".gewei").css({"background-position":"40% 100.2%","width":"35.5%"});
             $(".score_num").css({"left":"43%"});
         }else if(Total_score <= 90&& Total_score >= 10){
             $(".shiwei").show();

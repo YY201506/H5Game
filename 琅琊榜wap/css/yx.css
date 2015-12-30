@@ -116,8 +116,9 @@ input:focus::-webkit-input-placeholder{color:#FFF0D7;}
 .question_area{position: relative;}
 .answer{position: absolute;top:60px;margin-left: 16%;}
 .question_title{width: 220px;display: block;margin-left: 15%;}
+.answerABC{width: 100px;height: 18px;margin-bottom: 20px; display: block;}
 .gou{background:url("../images/yes.png") no-repeat;width: 17px;height: 17px;background-size: 100% 100%;}
-.answerABC{width: 18px;height: 18px;margin-bottom: 20px; display: block;}
+
 
 /*5屏*/
 .finish{top: 50%;transform: translate(0,-50%);-webkit-transform: translate(0,-50%);z-index: 99;position: relative;text-align: center;}
@@ -171,7 +172,7 @@ input:focus::-webkit-input-placeholder{color:#FFF0D7;}
 .ruletitle{border: 1px solid #fff; color: #fff;font-size:0.16rem; padding: 3px 5px; display:block; -webkit-border-radius: 3px; border-radius: 3px; margin: 10% auto 5%;width: 25%; text-align: center;}
 .rulecon{width: 86.6%;color: #fff;font-size: 0.15rem; margin: 0 auto;line-height: 0.25rem;}
 .htitle2{margin-top: 10%;}
-.help{display:block; width: 86.6%; margin: 0 auto;}
+.help{display:block; width: 86.6%; margin: 0 auto; margin-bottom: 13%;}
 .row{display:block;border-bottom: 1px solid #1EA15F;padding-bottom: 3%;padding-top: 3%;font-size: 0.18rem;}
 .cell{display: inline-block; text-align: left;}
 .cell_left{width: 21%;}
