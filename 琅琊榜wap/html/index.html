@@ -100,12 +100,25 @@
                     <span class="gewei"></span>
                 </p>
             </div>
-            <div class="input_tel martop5"><input type="text" placeholder="输入手机号码"></div>
-            <img src="../images/submit.png" class="width_100 martop6 marbot2"/>
+            <div class="input_tel martop5"><input type="text" placeholder="输入手机号码" id="phonenumber"></div>
+            <img src="../images/submit.png" id="submit" class="width_100 martop6 marbot2"/>
             <a href="ranking.html" class="checktop">查看我的排名</a>
         </div>
         <div class="coright2"><p>©开工宝</p></div>
     </div>
+
+    <div class="bg_black" style="display: none"></div>
+    <div id="dialog" class="animated">
+        <div class="dialogTop">
+            <a href="javascript:;" class="claseDialogBtn">关闭</a>
+        </div>
+        <div class="dialogcon">
+            <span></span>
+        </div>
+
+    </div>
+
+
 </div>
 <audio id="bgMp3" src="../images/lucky.mp3" controls="controls" loop="false" hidden="true"></audio>
 <script type="text/javascript" src="http://test.360zfw.com/Public/web/js/jquery.min.js"></script>
@@ -330,6 +343,40 @@
             $(".music_control img").attr("src", "../images/bg_open.png");
         }
     }
+
+    //提交成绩、时长、号码
+
+    $("#submit").on("click",function(){
+
+        var phonenumber=$("#phonenumber").val();
+        var reg = /^((\d{11})|^((\d{7,8})|(\d{4}|\d{3})-(\d{7,8})|(\d{4}|\d{3})-(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1})|(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1}))$)/;
+        $(".bg_black").fadeIn(200);
+        $("#dialog").removeAttr("class").addClass("bounceInDown").fadeIn();
+        if (phonenumber==null||phonenumber=="")
+        {
+            $(".dialogcon").text("请填手机号码");
+            return false
+        }else{
+            if (reg.test(phonenumber)) {
+                $("#phonenumber").val("");
+                $(".dialogcon").text("您输入的手机号正确");
+                $.post();
+            }
+            else{
+                $(".dialogcon").text("您输入的手机号码格式不正确");
+            }
+        }
+    });
+
+    //关闭弹窗
+    $(".claseDialogBtn").click(function(){
+        $("#dialog").addClass("bounceOutUp").fadeOut(function(){
+            $(".bg_black").fadeOut(300);
+        });
+    });
+
+
+
 
 </script>
 </body>

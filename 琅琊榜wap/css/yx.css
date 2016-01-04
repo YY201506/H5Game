@@ -200,3 +200,17 @@ input:focus::-webkit-input-placeholder{color:#FFF0D7;}
 .width_90{width: 90%;margin: 0 auto;}
 .martop5{margin-top: 5%;}
 .martop6{margin-top: 13%;}
+
+/*弹窗*/
+
+#dialog{width:80%;height:30%;display:none;background-color:#fff;position:fixed;top:50%;left:50%;-webkit-transform:translate(-50%,-50%);z-index:10000;border:1px solid #ccc;-webkit-border-radius:10px}
+@-webkit-keyframes bounceInDown{
+    0%{opacity:0;-webkit-transform:translate(-50%,-200%);transform:translate(-50%,-200%);}
+    100%{-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);}
+}
+@-webkit-keyframes bounceOutUp{
+    0%{-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);}
+    100%{opacity:0;-webkit-transform:translate(-50%,-200%);transform:translate(-50%,-200%);}
+}
+.bounceInDown{-webkit-animation-name:bounceInDown;animation-name:bounceInDown;-webkit-animation-duration:1s;animation-duration:1.4s;-webkit-animation-fill-mode:both;}
+.bounceOutUp{-webkit-animation-name: bounceOutUp;animation-name: bounceOutUp;}
